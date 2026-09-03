@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GSAP 设计系统字体：Inter Tight（Mori 替代） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- CSP：脚本仅限自身（Electron 生产态 loadFile，无 CDN 脚本）；HLS 分片与封面图
+         来自远程 https + blob:；ws: 仅为 Vite dev HMR 保留 -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data: blob:; media-src 'self' https: blob:; connect-src 'self' https: ws: wss: blob: data:; font-src 'self' data: https://fonts.gstatic.com; object-src 'none'; base-uri 'none'"
+    />
+    <title>Stripchat Split</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

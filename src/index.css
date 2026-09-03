@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── GSAP 设计系统 CSS 自定义属性 ────────────────────────── */
+:root {
+  /* 色彩 */
+  --color-just-black: #0e100f;
+  --color-off-black: #191919;
+  --color-surface-cream: #fffce1;
+  --color-surface-50: #7c7c6f;
+  --color-surface-25: #42433d;
+  --color-shockingly-green: #0ae448;
+  --color-light-green: #abff84;
+  --color-orangey: #ff8709;
+  --color-pink: #fec5fb;
+  --color-lilac: #9d95ff;
+  --color-blue: #00bae2;
+
+  /* 字体 */
+  --font-mori: 'Inter Tight', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-mori);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden; /* 页面滚动交给内容区（main 内 overflow-y-auto） */
+  background-color: var(--color-just-black);
+  color: var(--color-surface-cream);
+}
+
+#root {
+  /* 自定义标题栏需横跨全窗口宽度，宽度限制下放到内容容器 */
+  max-width: none;
+  margin: 0;
+}
+
+/* ── 滚动条美化（GSAP 深色主题） ────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-25);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box; /* 视觉内缩，拇指更细且有留白 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-surface-50);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ── GSAP 全局按钮样式（幽灵描边 pill） ────────────────── */
+@layer components {
+  /* 幽灵描边按钮：100px radius, 1px cream border */
+  .btn-ghost {
+    padding: 15px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    background: transparent;
+    color: var(--color-surface-cream);
+    border: 1px solid var(--color-surface-cream);
+    border-radius: 100px;
+    transition: opacity 150ms;
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    opacity: 0.8;
+  }
+
+  /* CTA 渐变描边 pill（GSAP 唯一的彩色按钮） */
+  .btn-cta {
+    padding: 15px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    background: transparent;
+    color: var(--color-surface-cream);
+    border-radius: 100px;
+    border: 1.5px solid transparent;
+    background-image: linear-gradient(var(--color-just-black), var(--color-just-black)),
+                      linear-gradient(114.41deg, var(--color-shockingly-green) 20.74%, var(--color-light-green) 65.5%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: opacity 150ms;
+    cursor: pointer;
+  }
+  .btn-cta:hover {
+    opacity: 0.85;
+  }
+
+  /* 幽灵按钮（工具栏用） — 与主按钮同尺寸 */
+  .btn-ghost-sm {
+    padding: 15px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    background: transparent;
+    color: var(--color-surface-cream);
+    border: 1px solid var(--color-surface-25);
+    border-radius: 100px;
+    transition: border-color 150ms;
+    cursor: pointer;
+  }
+  .btn-ghost-sm:hover {
+    border-color: var(--color-surface-cream);
+  }
+
+  /* curly-bracket annotation */
+  .annotation {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-surface-cream);
+    letter-spacing: -0.01em;
+  }
+}

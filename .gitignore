@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+dist-electron/
+release/
+*.log
+
+# 工具 / 临时文件
+.mimocode/
+.DS_Store
+nul
+
+# 诊断脚本 / 会话记忆 / 测试产物
+.diag-cam/
+.workbuddy/
+dist-test/
+qv.m3u8
